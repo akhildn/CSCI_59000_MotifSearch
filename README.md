@@ -1,1 +1,2 @@
-# MotifSearch
+# BioInformatics
+Programming Project
