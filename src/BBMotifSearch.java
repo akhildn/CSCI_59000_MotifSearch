@@ -51,6 +51,10 @@ public class BBMotifSearch {
             }
         }
 
+        int maxScore = BBMotifSearch.getScore(bestSequences, numOfSeq, dnaSeq, motifLen);
+
+        bestMotifResponse.setBestMotifScore(maxScore);
+
         return bestMotifResponse;
     }
 
