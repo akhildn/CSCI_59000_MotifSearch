@@ -128,6 +128,13 @@ public class GreedyMotifSearch {
         }
 
         response.setStartSequences(bestMotifSeq);
+
+        /*
+        * Calculating the maximum score
+        * */
+        int maxScore = BBMotifSearch.getScore(bestMotifSeq, numOfSeq, dnaList, motifLen);
+
+        response.setBestMotifScore(maxScore);
         return response;
     }
 
@@ -195,7 +202,7 @@ public class GreedyMotifSearch {
         return score;
 
     }
-
+    
     private static int convertDNAAcidCodeToInt(char dnaAcidCode) {
         if (dnaAcidCode == 'A'
                 || dnaAcidCode == 'a')
