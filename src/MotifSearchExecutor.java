@@ -33,7 +33,7 @@ public class MotifSearchExecutor {
                 System.out.println("Modified Greedy ::");
                 invokeAndMeasureGreedyMotifSearch(dnaList, motifLength);
             } else {
-                System.out.println("Not a Valid Algorithm name passed. Should be either bb or greedy");
+                System.out.println("Not a Valid Algorithm name passed.");
             }
 
 
@@ -56,10 +56,11 @@ public class MotifSearchExecutor {
         double timeTaken;
         long startGreedyTime = System.currentTimeMillis();
         response = GreedyMotifSearch.motifSearch(dnaList, dnaList.size(), dnaList.get(0).length(), motifLength);
-        System.out.println("Start Sequences ::");
+        System.out.print("Start Sequences :: [");
         for (int startIndex : response.getStartSequences()) {
-            System.out.print(startIndex + "\t");
+            System.out.print(startIndex + ",");
         }
+        System.out.println("] \t Max Score = " + response.getBestMotifScore());
         long endGreedyTime = System.currentTimeMillis();
         timeTaken = (endGreedyTime - startGreedyTime);
 
@@ -70,10 +71,11 @@ public class MotifSearchExecutor {
         long startBBTime = System.currentTimeMillis();
         MotifSearchResponse response = BBMotifSearch.branchBoundMotifSearch(dnaList, dnaList.size()
                                                                         , dnaList.get(0).length(), motifLength);
-        System.out.println("Start Sequences ::");
+        System.out.print("Start Sequences :: [");
         for (int startIndex : response.getStartSequences()) {
-            System.out.print(startIndex + "\t");
+            System.out.print(startIndex + ",");
         }
+        System.out.println("] \t Max Score = " + response.getBestMotifScore());
         long endBBTime = System.currentTimeMillis();
         double timeTaken = (endBBTime - startBBTime);
 
